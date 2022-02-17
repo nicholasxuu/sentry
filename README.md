@@ -53,3 +53,14 @@ sending events from any language, in any application.
   - [Code](https://github.com/getsentry/sentry)
   - [Transifex](https://www.transifex.com/getsentry/sentry/) (Translate
     Sentry\!)
+
+
+```
+docker build -t sentrybuild --build-arg SOURCE_COMMIT=172bad116b -f docker/builder.dockerfile .
+
+docker run -v ${PWD}:/workspace sentrybuild:latest
+
+docker build -t registry.cn-hangzhou.aliyuncs.com/shanbay/sentry:21.11.0 --build-arg SOURCE_COMMIT=172bad116b -f docker/Dockerfile .
+
+docker push ...
+```
